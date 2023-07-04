@@ -68,7 +68,8 @@ En el archivo **BankAccountVerificationApiTest.java**, que se encuentra en ***sr
 		accountValidator.setExternalId(uuid);
 		accountValidator.setSubscriptionId(UUID.fromString("your_suscription_id"));
 		accountValidator.setBankId(CatalogBank.NUMBER_40012);
-		accountValidator.setAccountType(AccountTypeEnum.CLABE);
+		accountValidator.setAccountType(AccountTypeEnum.PERSONAFISICA);
+		accountValidator.setIdentifierType(IdentifierTypeEnum.CLABE);
 		accountValidator.setAccountIdentifier("012180015543448001");
 		accountValidator.setFirstName("ANGEL");
 		accountValidator.setSecondName("JESUS");
