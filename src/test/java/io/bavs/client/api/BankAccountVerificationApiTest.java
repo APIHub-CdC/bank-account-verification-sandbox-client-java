@@ -10,6 +10,7 @@ import org.junit.Test;
 import io.bavs.client.ApiClient;
 import io.bavs.client.model.AccountValidator;
 import io.bavs.client.model.AccountValidator.AccountTypeEnum;
+import io.bavs.client.model.AccountValidator.IdentifierTypeEnum;
 import io.bavs.client.model.AccountValidatorWithPrivacyNotice;
 import io.bavs.client.model.AckEVRequest;
 import io.bavs.client.model.AckSuccessEVConsumption;
@@ -40,6 +41,8 @@ public class BankAccountVerificationApiTest {
 		apiClient.setHttpClient(okHttpClient);
 	}
 	
+	
+	
 	@Test
 	public void accountValidatorAPITest() throws Exception {
 		
@@ -48,11 +51,13 @@ public class BankAccountVerificationApiTest {
 		AccountValidator accountValidator = new AccountValidator();
 		
 		accountValidator.setExternalId(uuid);
-		accountValidator.setSubscriptionId(UUID.fromString("629402c3-8255-4684-ad87-d568d4b84485"));
+		accountValidator.setSubscriptionId(UUID.fromString("d7b3a117-4cf4-46ce-b255-03e895bef671"));
 		accountValidator.setBankId(CatalogBank.NUMBER_40012);
-		accountValidator.setAccountType(AccountTypeEnum.CLABE);
+		
+		accountValidator.setAccountType(AccountTypeEnum.PERSONAFISICA);
+		accountValidator.setIdentifierType(IdentifierTypeEnum.CLABE);
 		accountValidator.setAccountIdentifier("012180015543448001");
-		accountValidator.setFirstName("ANGEL");
+		accountValidator.setName("ANGEL");
 		accountValidator.setSecondName("JESUS");
 		accountValidator.setLastName("PEREZ");
 		accountValidator.setSecondLastName("CORDONA");
@@ -61,6 +66,8 @@ public class BankAccountVerificationApiTest {
 		accountValidator.setVerifierCompany("CDC");
 		
 		request.setAccountValidator(accountValidator);
+		
+		
 		AckEVRequest response = api.accountValidatorAPI(xApiKey, request);
 		
 		logger.info(response.toString());
@@ -69,7 +76,8 @@ public class BankAccountVerificationApiTest {
 		
 		
 	}
-
+	
+	
 	@Test
 	public void getAcountValidatorTest() throws Exception {
 		String xApiKey =this.xApiKey;
@@ -80,5 +88,6 @@ public class BankAccountVerificationApiTest {
 		
 		Assert.assertNotNull(response);
 	}
+	
 
 }
