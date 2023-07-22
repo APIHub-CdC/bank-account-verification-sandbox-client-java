@@ -51,9 +51,8 @@ public class BankAccountVerificationApiTest {
 		AccountValidator accountValidator = new AccountValidator();
 		
 		accountValidator.setExternalId(uuid);
-		accountValidator.setSubscriptionId(UUID.fromString("d7b3a117-4cf4-46ce-b255-03e895bef671"));
-		accountValidator.setBankId(CatalogBank.NUMBER_40012);
-		
+		accountValidator.setSubscriptionId(UUID.fromString("0700785a-cdbe-41bd-9c6b-93432acfb061"));
+		accountValidator.setBankId(40012);
 		accountValidator.setAccountType(AccountTypeEnum.PERSONAFISICA);
 		accountValidator.setIdentifierType(IdentifierTypeEnum.CLABE);
 		accountValidator.setAccountIdentifier("012180015543448001");
